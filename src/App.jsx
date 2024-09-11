@@ -1,6 +1,18 @@
-import { useState } from 'react'
+import cn from "../utils/cn";
+
 function App() {
-  return <div>Hello World!</div>
+  const display = true;
+  return (
+    <div
+      className={cn(
+        "text-red-600",
+        "dark:text-red-300 text-lg md:text-2xl",
+        display && "bg-slate-300"
+      )}
+    >
+      Hello World!
+    </div>
+  );
 }
 
-export default App
+export default App;
