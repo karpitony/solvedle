@@ -2,15 +2,15 @@ import cn from "../utils/cn";
 import React, { useMemo, useState } from "react";
 import HowToPlay from "./HowToPlay";
 import Cell from "./Cell";
-import * as tags from './assets/tags.json'
+import * as tags from "./assets/tags.json";
 
 // Function to generate a daily seed-based random number
 function LCG(seed) {
-  return function() {
+  return function () {
     seed = (seed * 1879 + 1013904223) % 65536;
     return seed / 65536;
   };
-};
+}
 
 function fisherYatesShuffle(array, randomFunc) {
   let i, j, temp;
@@ -24,9 +24,11 @@ function fisherYatesShuffle(array, randomFunc) {
 }
 
 function App() {
-  const solvedacTags = tags["tags"].filter((element) => element.length >= 2 && element.length <= 8);
+  const solvedacTags = tags["tags"].filter(
+    (element) => element.length >= 2 && element.length <= 8
+  );
 
-  const epochMs = new Date('September 12, 2024 00:00:00').valueOf();
+  const epochMs = new Date("September 12, 2024 00:00:00").valueOf();
   const now = Date.now();
   const msInDay = 86400000;
   const daysSinceEpoch = Math.floor((now - epochMs) / msInDay); // Calculate days since epoch
@@ -41,13 +43,13 @@ function App() {
 
   const todayTag = shuffledTags[0];
   const tagLength = todayTag.length;
-  let letters = ""
+  let letters = "";
 
-  console.log(todayTag)
+  console.log(todayTag);
 
   const [userInput, setUserInput] = useState("");
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       letters = userInput;
     }
   };
@@ -55,9 +57,7 @@ function App() {
   return (
     <div>
       <div align="center">
-        <p className="text-lg font-bold px-1 py-1 inline">
-          Solved 
-        </p>
+        <p className="text-lg font-bold px-1 py-1 inline">Solved</p>
         <p className="text-lg bg-green-500 text-white px-3 py-0.75 rounded-md font-bold inline-block">
           le
         </p>
@@ -66,28 +66,28 @@ function App() {
       <div align="center">
         {[...Array(6)].map((_, attempt) => (
           <div key={attempt} className="my-2">
-            <Cell tagLength={tagLength}/>
+            <Cell tagLength={tagLength} />
           </div>
         ))}
       </div>
-      
+
       <div align="center">
-      <input
-        type="text"
-        placeholder="추측한 태그를 입력해주세요." 
-        onKeyDown={handleKeyDown}
-        className="flex justify-center border border-slate-500 px-3 py-1"
-      />
+        <input
+          type="text"
+          placeholder="추측한 태그를 입력해주세요."
+          onKeyDown={handleKeyDown}
+          className="flex justify-center border border-slate-500 px-3 py-1"
+        />
       </div>
 
       <HowToPlay />
 
-      <a href="https://github.com/karpitony/solvedle" target="_blank" rel="noopener noreferrer">
-        <img 
-          className="h-10" 
-          src="src/assets/github-mark.png" 
-          alt="GitHub"
-        />
+      <a
+        href="https://github.com/karpitony/solvedle"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img className="h-10" src="src/assets/github-mark.png" alt="GitHub" />
       </a>
     </div>
   );

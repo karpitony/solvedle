@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
 function Cell({ tagLength }) {
-  const [letters, setLetters] = useState(Array(tagLength).fill(''));
+  const [letters, setLetters] = useState(Array(tagLength).fill(""));
   const inputRefs = useRef([]);
 
   return (
