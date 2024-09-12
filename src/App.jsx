@@ -13,10 +13,13 @@ function App() {
         </p>
       </div>
       <HowToPlay />
-      <img 
-        className="h-10" 
-        src="src/assets/github-mark.png" 
-      />
+      <a href="https://github.com/karpitony/solvedle" target="_blank" rel="noopener noreferrer">
+        <img 
+          className="h-10" 
+          src="src/assets/github-mark.png" 
+          alt="GitHub"
+        />
+      </a>
     </div>
   );
 }
