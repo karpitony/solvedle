@@ -1,7 +1,7 @@
 import cn from "../utils/cn";
 import React, { useMemo, useState } from "react";
-import HowToPlay from "./HowToPlay";
-import Cell from "./Cell";
+import HowToPlay from "./components/how-to-play/HowToPlay";
+import Cell from "./components/Cell";
 import * as tags from "./assets/tags.json";
 
 // Function to generate a daily seed-based random number
