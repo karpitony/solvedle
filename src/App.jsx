@@ -51,7 +51,18 @@ function App() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       letters = userInput;
+      setUserInput("");
+      if (letters.length != tagLength) {
+        alert("길이가 맞지 않습니다.")
+      } else if (!(letters in solvedacTags)) {
+        alert("태그 목록에 없습니다. 다시한번 확인해주세요.")
+      } else {
+        // Cell에 데이터 넣고 맞는지 여부 알려주기
+      }
     }
+  };
+  const handleChange = (e) => {
+    setUserInput(e.target.value); // Update userInput with the current input value
   };
 
   return (
@@ -75,7 +86,9 @@ function App() {
         <input
           type="text"
           placeholder="추측한 태그를 입력해주세요."
+          value={userInput}
           onKeyDown={handleKeyDown}
+          onChange={handleChange}
           className="flex justify-center border border-slate-500 px-3 py-1"
         />
       </div>
