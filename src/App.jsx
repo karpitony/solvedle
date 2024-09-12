@@ -1,16 +1,22 @@
 import cn from "../utils/cn";
+import HowToPlay from "./HowToPlay";
 
 function App() {
-  const display = true;
   return (
-    <div
-      className={cn(
-        "text-red-600",
-        "dark:text-red-300 text-lg md:text-2xl",
-        display && "bg-slate-300"
-      )}
-    >
-      Hello World!
+    <div>
+      <div align="center">
+        <p className="text-lg font-bold px-1 py-1 inline">
+          Solved 
+        </p>
+        <p className="text-lg bg-green-500 text-white px-3 py-0.75 rounded-md font-bold inline-block">
+          le
+        </p>
+      </div>
+      <HowToPlay />
+      <img 
+        className="h-10" 
+        src="src/assets/github-mark.png" 
+      />
     </div>
   );
 }
