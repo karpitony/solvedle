@@ -53,8 +53,9 @@ export default function Game() {
         return;
       }
       console.log("길이 정상, 태그 목록에 있음");
-      const jamoLetters = jamo(letters);
-      console.log(jamoLetters);
+      // jamo 리턴으로 2차원 배열와서 바꿔야함
+      // const jamoLetters = jamo(letters);
+      // console.log(jamoLetters);
       // Cell에 데이터 넣고 맞는지 여부 알려주기
     }
   };
