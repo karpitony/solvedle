@@ -35,16 +35,15 @@ export default function Game() {
   console.log(todayTag);
 
   const handleKeyDown = (e) => {
+    if (e.nativeEvent.isComposing) {
+      return;
+    }
     if (e.key === "Enter") {
       e.preventDefault();
       letters = userInput;
-      console.log(letters);
+      console.log(letters); // Debugging
       setUserInput("");
       
-      if (letters.length === 1) {
-        // 두번실행으로 입력 펑크날때 대비
-        return;
-      }
       if (letters.length !== tagLength) {
         alert("길이가 맞지 않습니다.");
         return;
