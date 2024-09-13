@@ -11,7 +11,16 @@
 body {
   min-height: 100vh;
 }
-/* 
-.flex-col {
-  flex-direction: column;
-} */
+
+@keyframes ripple {
+  0% {
+    background-size: 0% 100%;
+    background-position: center;
+    background-color: rgba(0, 255, 0, 0.2);
+  }
+  100% {
+    background-size: 100% 100%;
+    background-position: center;
+    background-color: rgba(0, 255, 0, 0);
+  }
+}
