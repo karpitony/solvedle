@@ -1,7 +1,9 @@
 import { useState, useMemo } from "react";
 import * as tags from "../../assets/tags.json";
-import Cell from "../Cell";
+import Cell from "./Cell";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
+import GameGrid from "./GameGrid";
+import AnswerInput from "./AnswerInput";
 
 export default function Game() {
   const [userInput, setUserInput] = useState("");
@@ -53,24 +55,12 @@ export default function Game() {
 
   return (
     <>
-      <div align="center">
-        {[...Array(6)].map((_, attempt) => (
-          <div key={attempt} className="my-2">
-            <Cell tagLength={tagLength} />
-          </div>
-        ))}
-      </div>
-
-      <div align="center">
-        <input
-          type="text"
-          placeholder="추측한 태그를 입력해주세요."
-          value={userInput}
-          onKeyDown={handleKeyDown}
-          onChange={handleChange}
-          className="flex justify-center border border-slate-500 px-3 py-1"
-        />
-      </div>
+      <GameGrid tagLength={tagLength} />
+      <AnswerInput
+        value={userInput}
+        onKeyDown={handleKeyDown}
+        onChange={handleChange}
+      />
     </>
   );
 }

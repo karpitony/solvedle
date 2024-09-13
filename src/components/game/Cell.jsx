@@ -5,9 +5,9 @@ function Cell({ tagLength }) {
   const inputRefs = useRef([]);
 
   return (
-    <div>
+    <div className="flex gap-1">
       {letters.map((letter, index) => (
-        <input
+        <div
           key={index}
           ref={(el) => (inputRefs.current[index] = el)}
           type="text"
