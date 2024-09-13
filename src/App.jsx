@@ -1,6 +1,7 @@
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Game from "./components/game/Game";
+import HowToPlayBox from "./components/how-to-play/HowToPlayBox";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <div>
             <Game />
           </div>
-          <div>2341</div>
+          <HowToPlayBox />
         </div>
       </main>
 
