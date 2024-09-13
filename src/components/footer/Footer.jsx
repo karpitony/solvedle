@@ -1,5 +1,5 @@
 import { FaGithub } from "react-icons/fa6";
-import cn from "../../../utils/cn";
+import cn from "../../lib/cn";
 
 export default function Footer() {
   return (
