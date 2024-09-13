@@ -1,8 +1,8 @@
-import cn from "../utils/cn";
 import React, { useMemo, useState } from "react";
 import HowToPlay from "./components/how-to-play/HowToPlay";
 import Cell from "./components/Cell";
 import * as tags from "./assets/tags.json";
+import Header from "./components/header/Header";
 
 // Function to generate a daily seed-based random number
 function LCG(seed) {
@@ -25,7 +25,7 @@ function fisherYatesShuffle(array, randomFunc) {
 
 function App() {
   const [userInput, setUserInput] = useState("");
-  
+
   const solvedacTags = tags["tags"].filter(
     (element) => element.length >= 2 && element.length <= 8
   );
@@ -48,7 +48,7 @@ function App() {
   let letters = "";
 
   console.log(todayTag);
-  
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -58,12 +58,12 @@ function App() {
         alert("길이가 맞지 않습니다.");
         return;
       }
-      if (!(solvedacTags.includes(letters))) {
+      if (!solvedacTags.includes(letters)) {
         alert("태그 목록에 없습니다. 다시한번 확인해주세요.");
         return;
       }
-      console.log("길이 정상, 태그 목록에 있음")
-        // Cell에 데이터 넣고 맞는지 여부 알려주기
+      console.log("길이 정상, 태그 목록에 있음");
+      // Cell에 데이터 넣고 맞는지 여부 알려주기
     }
   };
 
@@ -73,13 +73,7 @@ function App() {
 
   return (
     <div>
-      <div align="center">
-        <p className="text-lg font-bold px-1 py-1 inline">Solved</p>
-        <p className="text-lg bg-green-500 text-white px-3 py-0.75 rounded-md font-bold inline-block">
-          le
-        </p>
-      </div>
-
+      <Header />
       <div align="center">
         {[...Array(6)].map((_, attempt) => (
           <div key={attempt} className="my-2">
