@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import * as tags from "../../assets/tags.json";
 import Cell from "./Cell";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
+import { jamo } from "../../lib/jamo";
 import GameGrid from "./GameGrid";
 import AnswerInput from "./AnswerInput";
 
@@ -27,6 +28,8 @@ export default function Game() {
 
   const todayTag = shuffledTags[0];
   const tagLength = todayTag.length;
+  const tagJamo = jamo(todayTag);
+  console.log(tagJamo); // Debugging
   let letters = "";
 
   console.log(todayTag);
@@ -35,7 +38,13 @@ export default function Game() {
     if (e.key === "Enter") {
       e.preventDefault();
       letters = userInput;
+      console.log(letters);
       setUserInput("");
+      
+      if (letters.length === 1) {
+        // 두번실행으로 입력 펑크날때 대비
+        return;
+      }
       if (letters.length !== tagLength) {
         alert("길이가 맞지 않습니다.");
         return;
@@ -45,6 +54,8 @@ export default function Game() {
         return;
       }
       console.log("길이 정상, 태그 목록에 있음");
+      const jamoLetters = jamo(letters);
+      console.log(jamoLetters);
       // Cell에 데이터 넣고 맞는지 여부 알려주기
     }
   };
