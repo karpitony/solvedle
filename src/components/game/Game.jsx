@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
 import * as tags from "../../assets/tags.json";
-import Cell from "./Cell";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
 import { jamo } from "../../lib/jamo";
+import { debug } from "../../lib/logger";
 import GameGrid from "./GameGrid";
 import AnswerInput from "./AnswerInput";
 
@@ -29,10 +29,10 @@ export default function Game() {
   const todayTag = shuffledTags[0];
   const tagLength = todayTag.length;
   const tagJamo = jamo(todayTag);
-  console.log(tagJamo); // Debugging
+  debug(tagJamo); // Debugging
   let letters = "";
 
-  console.log(todayTag);
+  debug(todayTag);
 
   const handleKeyDown = (e) => {
     if (e.nativeEvent.isComposing) {
@@ -52,7 +52,7 @@ export default function Game() {
         alert("태그 목록에 없습니다. 다시한번 확인해주세요.");
         return;
       }
-      console.log("길이 정상, 태그 목록에 있음");
+      debug("길이 정상, 태그 목록에 있음");
       // jamo 리턴으로 2차원 배열와서 바꿔야함
       // const jamoLetters = jamo(letters);
       // console.log(jamoLetters);
