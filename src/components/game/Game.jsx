@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import * as tags from "../../assets/tags.json";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
 import { jamo } from "../../lib/jamo";
+import { calc } from "../../lib/calc";
 import { debug } from "../../lib/logger";
 import GameGrid from "./GameGrid";
 import AnswerInput from "./AnswerInput";
@@ -65,13 +66,19 @@ export default function Game() {
   };
 
   return (
-    <>
-      <GameGrid tagLength={tagLength} />
+    <div>
+      {jamoCount > 0 && (
+        <GameGrid
+          attempts={attempts}
+          dosiLength={jamoCount}
+          userResult={userResults}
+        />
+      )}
       <AnswerInput
         value={userInput}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
-    </>
+    </div>
   );
 }
