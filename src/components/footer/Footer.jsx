@@ -11,11 +11,7 @@ export default function Footer() {
         )}
       >
         <span>&copy; 2024 karpitony, YEAHx4.</span>
-        <div className="text-3xl">
-          <a href="https://github.com/karpitony/solvedle" target="_blank">
-            <FaGithub />
-          </a>
-        </div>
+        <FaGithub className="text-2xl" />
       </div>
     </footer>
   );
