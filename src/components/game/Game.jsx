@@ -86,7 +86,13 @@ export default function Game() {
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
-      {isDone && <GameResult success={success} />}
+      {isDone && (
+        <GameResult
+          success={success}
+          history={history.map((v) => validateTag(v, todayTag, tagLength))}
+          day={daysSinceEpoch}
+        />
+      )}
       <HowToPlay />
     </>
   );
