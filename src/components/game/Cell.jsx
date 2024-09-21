@@ -1,13 +1,8 @@
-import { useEffect } from "react";
 import cn from "../../lib/cn";
 import { validateTag } from "../../lib/validator";
 
 function Cell({ tagLength, value, answer }) {
   const ans = validateTag(answer, value.join(""), tagLength);
-
-  useEffect(() => {
-    console.log(ans);
-  }, [ans]);
 
   const colors = {
     correct: "bg-green-200",
