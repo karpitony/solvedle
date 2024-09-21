@@ -6,10 +6,9 @@ export default function HowToPlayBox() {
     <div
       className={cn(
         "border-2 border-gray-400 rounded-md flex flex-col",
-        "w-[320px] p-8 h-[640px]"
+        "w-[320px] p-8 h-[640px] hidden md:block"
       )}
     >
-      <div className="text-center font-bold text-lg mb-4">플레이 방법</div>
       <HowToPlayContent />
     </div>
   );

@@ -1,6 +1,7 @@
 export default function HowToPlayContent() {
   return (
     <>
+      <div className="text-center font-bold text-lg mb-4">플레이 방법</div>
       <p className="mt-4 mb-2">
         <b>기본 규칙</b>
       </p>
