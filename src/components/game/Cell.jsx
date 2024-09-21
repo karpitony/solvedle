@@ -14,7 +14,6 @@ function Cell({ tagLength, value }) {
             "flex justify-center items-center select-none text-3xl",
             "font-extrabold"
           )}
-          readOnly
         >
           {letter}
         </div>

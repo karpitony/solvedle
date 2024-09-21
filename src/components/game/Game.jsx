@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import * as tags from "../../assets/tags.json";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
-import { jamo } from "../../lib/jamo";
 import GameGrid from "./GameGrid";
 import AnswerInput from "./AnswerInput";
 

@@ -6,8 +6,6 @@ export default function ({ tagLength, history }) {
     data[i] = history[i].split("");
   }
 
-  console.log("data:", data);
-
   return (
     <>
       {[...Array(6)].map((_, i) => (
