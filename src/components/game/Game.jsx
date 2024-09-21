@@ -3,6 +3,7 @@ import * as tags from "../../assets/tags.json";
 import { fisherYatesShuffle, LCG } from "../../lib/random";
 import GameGrid from "./GameGrid";
 import AnswerInput from "./AnswerInput";
+import HowToPlay from "../how-to-play/HowToPlay";
 
 export default function Game() {
   const [userInput, setUserInput] = useState("");
@@ -74,6 +75,7 @@ export default function Game() {
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
+      <HowToPlay />
     </>
   );
 }
