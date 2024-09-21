@@ -1,4 +1,5 @@
 import cn from "../../lib/cn";
+import { debug } from "../../lib/logger";
 
 export default function GameResult({ success, history, day }) {
   const copyResult = () => {
@@ -39,7 +40,7 @@ export default function GameResult({ success, history, day }) {
       result += "\n";
     }
 
-    console.log(result);
+    debug(result);
     navigator.clipboard.writeText(result);
     alert("결과가 복사되었습니다.");
   };

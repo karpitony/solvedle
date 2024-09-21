@@ -6,6 +6,7 @@ import AnswerInput from "./AnswerInput";
 import HowToPlay from "../how-to-play/HowToPlay";
 import GameResult from "./GameResult";
 import { validateTag } from "../../lib/validator";
+import { debug } from "../../lib/logger";
 
 export default function Game() {
   const [userInput, setUserInput] = useState("");
@@ -54,10 +55,10 @@ export default function Game() {
         return;
       }
 
-      console.log("길이 정상, 태그 목록에 있음");
+      debug("길이 정상, 태그 목록에 있음");
 
-      console.log("userInput:", letters);
-      console.log("todayTag:", todayTag);
+      debug("userInput:", letters);
+      debug("todayTag:", todayTag);
 
       if (history.length === 5) {
         setIsDone(true);
