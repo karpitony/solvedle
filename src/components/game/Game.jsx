@@ -68,7 +68,7 @@ export default function Game() {
 
   return (
     <>
-      <GameGrid tagLength={tagLength} history={history} />
+      <GameGrid tagLength={tagLength} history={history} answer={todayTag} />
       <AnswerInput
         value={userInput}
         onKeyDown={handleKeyDown}
