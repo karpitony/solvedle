@@ -1,9 +1,20 @@
 import cn from "../../lib/cn";
+import { useState, useEffect } from "react";
 import { validateTag } from "../../lib/validator";
 
 function Cell({ tagLength, value, answer }) {
-  const ans = validateTag(answer, value.join(""), tagLength);
+  const [cellSize, setCellSize] = useState("w-14 h-14");
+  
+  useEffect(() => {
+    if (tagLength === 7) {
+      setCellSize("w-12 h-12");
+    } else if (tagLength >= 8) {
+      setCellSize("w-10 h-10");
+    }
+  }, [tagLength]);
 
+  const ans = validateTag(answer, value.join(""), tagLength);
+  
   const colors = {
     correct: "bg-green-200",
     wrongLoc: "bg-blue-200",
@@ -18,7 +29,8 @@ function Cell({ tagLength, value, answer }) {
         <div
           key={i}
           className={cn(
-            "w-16 h-16 border-2 border-slate-400 rounded font-extrabold",
+            `${cellSize} md:w-16 md:h-16`,
+            "border-2 border-slate-400 rounded font-extrabold",
             "flex items-center justify-center select-none text-3xl",
             colors[ans[i]] || "bg-gray-200"
           )}
