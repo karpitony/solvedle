@@ -4,10 +4,14 @@ import { fisherYatesShuffle, LCG } from "../../lib/random";
 import GameGrid from "./GameGrid";
 import AnswerInput from "./AnswerInput";
 import HowToPlay from "../how-to-play/HowToPlay";
+import GameResult from "./GameResult";
+import { validateTag } from "../../lib/validator";
 
 export default function Game() {
   const [userInput, setUserInput] = useState("");
   const [history, setHistory] = useState([]);
+  const [isDone, setIsDone] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const solvedacTags = tags["tags"].filter(
     (element) => element.length >= 2 && element.length <= 8
@@ -55,11 +59,18 @@ export default function Game() {
       console.log("userInput:", letters);
       console.log("todayTag:", todayTag);
 
-      setHistory([...history, letters]);
-
-      if (history.length === 6) {
-        alert("게임 종료");
+      if (history.length === 5) {
+        setIsDone(true);
       }
+
+      if (
+        validateTag(todayTag, letters, tagLength).every((v) => v === "correct")
+      ) {
+        setSuccess(true);
+        setIsDone(true);
+      }
+
+      setHistory([...history, letters]);
     }
   };
 
@@ -75,6 +86,7 @@ export default function Game() {
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
+      {isDone && <GameResult success={success} />}
       <HowToPlay />
     </>
   );
