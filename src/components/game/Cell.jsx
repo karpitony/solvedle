@@ -1,21 +1,23 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import cn from "../../lib/cn";
 
-function Cell({ tagLength }) {
-  const [letters, setLetters] = useState(Array(tagLength).fill(""));
-  const inputRefs = useRef([]);
-
+function Cell({ tagLength, value }) {
   return (
     <div className="flex gap-1">
-      {letters.map((letter, index) => (
+      {value.map((letter, index) => (
         <div
           key={index}
-          ref={(el) => (inputRefs.current[index] = el)}
           type="text"
           maxLength="1"
-          value={letter}
-          className="border border-slate-500 rounded w-20 h-20 text-center"
+          className={cn(
+            "border border-slate-500 rounded w-20 h-20 text-center",
+            "flex justify-center items-center select-none text-3xl",
+            "font-extrabold"
+          )}
           readOnly
-        />
+        >
+          {letter}
+        </div>
       ))}
     </div>
   );
