@@ -8,9 +8,9 @@ export default function HowToPlayContent() {
       <ul className="list-disc ml-4">
         <li>올바른 태그를 맞춰야 합니다.</li>
         <li>띄어쓰기는 제외됩니다.</li>
-        <li>태그 이름은 한국어 BOJ 표기를 기준으로 합니다.</li>
+        <li>태그 이름은 한국어 표기를 기준으로 합니다.</li>
         <li>각 칸마다 한 글자입니다.</li>
-        <li>숫자, 영어, 특수문자가 들어간 태그는 제외됩니다.</li>
+        <li>숫자, 영어, 특수문자가 들어간 태그는 제외됩니다. ex) 2-SAT, A*</li>
       </ul>
       <p className="mt-8 mb-2">
         <b>배경색</b>
