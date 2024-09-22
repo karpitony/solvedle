@@ -18,7 +18,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div>
+        <div className="flex justify-center">
           This page is neither endorsed by nor associated with Solved.ac.
         </div>
       </div>

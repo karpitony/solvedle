@@ -8,11 +8,14 @@ function App() {
     <div>
       <Header />
 
-      <main className="min-h-[90vh] flex justify-center">
-        <div className="max-w-[1024px] flex justify-between gap-16">
+      <main className="min-h-[90vh] mt-16 flex justify-center">
+        <div className="w-[40%]"></div>
+        <div className="max-w-[768px] w-full flex justify-center gap-16">
           <div className="flex flex-col items-center">
             <Game />
           </div>
+        </div>
+        <div className="w-[40%] flex justify-start">
           <HowToPlayBox />
         </div>
       </main>
